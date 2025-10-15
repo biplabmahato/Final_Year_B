@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
-import './App.css'
+import Landing from './components/Landing'
+import Predict from './components/Predict'
+
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Header />
+      <Landing/> */}
+      <Predict/>
+      {/* <Landing/> */}
       <h3 className="text-center text-2xl mt-8">Welcome to SIEM Dashboard</h3>
     </>
   )
