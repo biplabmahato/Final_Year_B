@@ -1,429 +1,204 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Shield, Cloud, Zap, CheckCircle, ArrowRight, Menu, X, 
-  Star, Users, TrendingUp, Lock, Eye, Bell, Server, 
-  Activity, Award, Globe, Sparkles 
-} from 'lucide-react';
+import React, { useState } from 'react';
 import './Landing.css';
+import { ArrowRight, Shield, Zap, TrendingUp, BarChart3, Lock, AlertCircle, Cloud } from 'lucide-react';
 
-const LandingPage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function LandingPage() {
   const [email, setEmail] = useState('');
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const features = [
+    {
+      icon: <AlertCircle className="feature-icon-svg" />,
+      title: "Real-time Anomaly Detection",
+      description: "Machine learning algorithms continuously monitor logs to detect suspicious activities and potential threats instantly."
+    },
+    {
+      icon: <TrendingUp className="feature-icon-svg" />,
+      title: "Predictive Analytics",
+      description: "Forecast system failures and security breaches before they occur using advanced trend analysis and historical data."
+    },
+    {
+      icon: <BarChart3 className="feature-icon-svg" />,
+      title: "Multi-Source Correlation",
+      description: "Intelligently correlate events from firewalls, IDS/IPS, authentication systems, and applications to identify complex attack patterns."
+    },
+    {
+      icon: <Zap className="feature-icon-svg" />,
+      title: "Adaptive Learning",
+      description: "Unsupervised learning algorithms adapt to new threats without requiring predefined rules or manual configuration."
+    },
+    {
+      icon: <Cloud className="feature-icon-svg" />,
+      title: "Scalable Cloud Architecture",
+      description: "Enterprise-grade cloud deployment with auto-scaling capabilities to handle massive log volumes effortlessly."
+    },
+    {
+      icon: <Lock className="feature-icon-svg" />,
+      title: "Reduced False Positives",
+      description: "Intelligent pattern recognition significantly reduces alert fatigue while maintaining detection accuracy above 98%."
+    }
+  ];
+
+  const stats = [
+    { number: "98.7%", label: "Detection Accuracy" },
+    { number: "Real-time", label: "Log Processing" },
+    { number: "5 Phases", label: "Development" },
+    { number: "12 Weeks", label: "SIEM Integration" }
+  ];
+
+  const problems = [
+    "Static rule-based detection",
+    "High false positive rates",
+    "Limited scalability",
+    "Reactive approach only",
+    "Complex manual configuration"
+  ];
+
+  const solutions = [
+    "Adaptive ML algorithms",
+    "99% accuracy with minimal false alerts",
+    "Enterprise-scale cloud deployment",
+    "Predictive threat prevention",
+    "Fully automated and intelligent"
+  ];
 
   return (
-    <div className="landing-page">
-      
-      {/* Animated Background Elements */}
-      <div className="background-container">
-        <div className="bg-blob bg-blob-1"></div>
-        <div className="bg-blob bg-blob-2"></div>
-        <div className="bg-blob bg-blob-3"></div>
-      </div>
-
-      {/* Navigation Bar */}
-      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-        <div className="nav-container">
-          <div className="nav-content">
-            <div className="nav-logo">
-              <div className="logo-icon rotating">
-                <Shield className="icon" />
-              </div>
-              <span className="logo-text">CloudSecure</span>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="nav-menu desktop-menu">
-              {['Features', 'Pricing', 'About', 'Contact'].map((item, idx) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-link"
-                  style={{ animationDelay: `${idx * 0.1}s` }}
-                >
-                  {item}
-                </a>
-              ))}
-              <button className="btn-primary">Get Started</button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="mobile-menu-btn"
-            >
-              {isMenuOpen ? <X /> : <Menu />}
-            </button>
+    <div className="container">
+      {/* Navigation */}
+      {/* <nav>
+        <div className="nav-content">
+          <div className="logo">
+            <Shield className="logo-icon" />
+            <span>AI-SIEM</span>
           </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="mobile-menu">
-              {['Features', 'Pricing', 'About', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="mobile-menu-link"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-              <button className="btn-primary full-width">Get Started</button>
-            </div>
-          )}
+          <button className="nav-btn">Get Started</button>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container">
-          <div className="hero-grid">
-            
-            {/* Left Column - Text Content */}
-            <div className="hero-content fade-in-up">
-              <div className="hero-badge">
-                <span className="badge-emoji">🚀</span>
-                <span>Trusted by 10,000+ companies</span>
-              </div>
-
-              <h1 className="hero-title">
-                Protect Your
-                <span className="gradient-text"> Digital Assets</span>
-              </h1>
-
-              <p className="hero-description">
-                Enterprise-grade cloud security that detects threats in real-time, 
-                protects your data, and ensures compliance across all platforms.
-              </p>
-
-              <div className="hero-buttons">
-                <button className="btn-primary btn-large">
-                  Start Free Trial
-                  <ArrowRight className="btn-icon" />
-                </button>
-                <button className="btn-secondary btn-large">
-                  Watch Demo
-                </button>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="trust-indicators">
-                <div className="trust-item">
-                  <Star className="trust-icon star-icon" />
-                  <span>4.9/5 Rating</span>
-                </div>
-                <div className="trust-item">
-                  <Users className="trust-icon" />
-                  <span>10K+ Users</span>
-                </div>
-                <div className="trust-item">
-                  <Award className="trust-icon" />
-                  <span>SOC 2 Certified</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Dashboard Preview */}
-            <div className="hero-visual fade-in-right">
-              <div className="dashboard-card">
-                {/* Dashboard Header */}
-                <div className="dashboard-header">
-                  <h3 className="dashboard-title">
-                    <Activity className="dashboard-icon" />
-                    Security Dashboard
-                  </h3>
-                  <span className="status-badge pulse">
-                    <span className="status-dot"></span>
-                    All Systems Secure
-                  </span>
-                </div>
-
-                {/* Stats Grid */}
-                <div className="stats-grid">
-                  {[
-                    { label: 'Threats Blocked', value: '2,847', icon: <Shield className="stat-icon" /> },
-                    { label: 'Active Users', value: '12,493', icon: <Users className="stat-icon" /> },
-                    { label: 'Uptime', value: '99.9%', icon: <TrendingUp className="stat-icon" /> },
-                    { label: 'Response Time', value: '12ms', icon: <Zap className="stat-icon" /> }
-                  ].map((stat, idx) => (
-                    <div 
-                      key={idx} 
-                      className="stat-card"
-                      style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
-                    >
-                      <div className="stat-header">
-                        {stat.icon}
-                        <span className="stat-label">{stat.label}</span>
-                      </div>
-                      <p className="stat-value">{stat.value}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Activity Log */}
-                <div className="activity-log">
-                  {[
-                    { status: 'success', msg: 'Malware blocked', time: '2m ago' },
-                    { status: 'warning', msg: 'Login from new device', time: '5m ago' },
-                    { status: 'success', msg: 'Backup completed', time: '10m ago' }
-                  ].map((log, idx) => (
-                    <div 
-                      key={idx} 
-                      className="activity-item slide-in-left"
-                      style={{ animationDelay: `${0.6 + idx * 0.1}s` }}
-                    >
-                      <span className={`activity-dot ${log.status}`}></span>
-                      <div className="activity-content">
-                        <p className="activity-msg">{log.msg}</p>
-                        <p className="activity-time">{log.time}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating Element */}
-              <div className="floating-badge">
-                <Lock className="floating-icon" />
-              </div>
-            </div>
-          </div>
+      <section className="hero">
+        <div className="hero-badge">
+          Intelligent Security Monitoring
         </div>
-      </section>
+        
+        <h1>Enterprise-Grade Log Analysis with AI</h1>
+        
+        <p>
+          Transform massive log volumes into actionable security insights. Our AI-powered SIEM system detects threats in real-time, predicts system failures, and adapts to emerging attacks without manual configuration.
+        </p>
 
-      {/* Social Proof Section */}
-      <section className="social-proof-section">
-        <div className="container">
-          <p className="social-proof-text">Trusted by leading companies worldwide</p>
-          <div className="companies-grid fade-in">
-            {['Company A', 'Company B', 'Company C', 'Company D', 'Company E'].map((company, idx) => (
-              <div 
-                key={idx} 
-                className="company-logo"
-                style={{ animationDelay: `${idx * 0.1}s` }}
-              >
-                {company}
-              </div>
-            ))}
-          </div>
+        <div className="button-group">
+          <button className="btn-primary">
+            Request Demo
+            <ArrowRight className="btn-icon" />
+          </button>
+          <button className="btn-secondary">
+            Learn More
+          </button>
+        </div>
+
+        {/* Stats */}
+        <div className="stats-grid">
+          {stats.map((stat, i) => (
+            <div key={i} className="stat-card">
+              <div className="stat-number">{stat.number}</div>
+              <div className="stat-label">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="features-section">
-        <div className="container">
-          <div className="section-header fade-in-up">
-            <h2 className="section-title">
-              Everything You Need to
-              <span className="gradient-text"> Stay Protected</span>
-            </h2>
-            <p className="section-description">
-              Comprehensive security features designed for modern businesses
-            </p>
+      <section className="features-section">
+        <div className="section-title">
+          <h2>Powerful Features</h2>
+          <p className="section-subtitle">Everything you need for comprehensive security monitoring</p>
+        </div>
+
+        <div className="features-grid">
+          {features.map((feature, i) => (
+            <div key={i} className="feature-card">
+              <div className="feature-icon">{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="problem-section">
+        <h2>Why AI-SIEM?</h2>
+        
+        <div className="problem-grid">
+          <div className="problem-column bad">
+            <h3>Traditional Systems Struggle With:</h3>
+            <ul className="problem-list bad">
+              {problems.map((item, i) => (
+                <li key={i}>
+                  <span className="icon">✕</span>
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="features-grid">
-            {[
-              {
-                icon: <Shield className="feature-icon" />,
-                title: 'Advanced Threat Detection',
-                description: 'AI-powered system identifies and blocks threats in real-time before they can harm your infrastructure'
-              },
-              {
-                icon: <Cloud className="feature-icon" />,
-                title: 'Multi-Cloud Support',
-                description: 'Seamlessly protect AWS, Azure, GCP, and hybrid environments from a single dashboard'
-              },
-              {
-                icon: <Zap className="feature-icon" />,
-                title: 'Lightning Fast Response',
-                description: 'Automated responses neutralize threats in milliseconds with intelligent security policies'
-              },
-              {
-                icon: <Eye className="feature-icon" />,
-                title: '24/7 Monitoring',
-                description: 'Continuous surveillance of your systems with instant alerts for suspicious activities'
-              },
-              {
-                icon: <Lock className="feature-icon" />,
-                title: 'Zero Trust Security',
-                description: 'Verify every access attempt with continuous authentication and authorization protocols'
-              },
-              {
-                icon: <CheckCircle className="feature-icon" />,
-                title: 'Compliance Ready',
-                description: 'Meet SOC 2, ISO 27001, GDPR, and other regulatory requirements effortlessly'
-              }
-            ].map((feature, idx) => (
-              <div 
-                key={idx} 
-                className="feature-card scale-in"
-                style={{ animationDelay: `${idx * 0.1}s` }}
-              >
-                <div className="feature-icon-wrapper">
-                  {feature.icon}
-                </div>
-                <h3 className="feature-title">{feature.title}</h3>
-                <p className="feature-description">{feature.description}</p>
-              </div>
-            ))}
+          <div className="problem-column good">
+            <h3>Our Solution Provides:</h3>
+            <ul className="problem-list good">
+              {solutions.map((item, i) => (
+                <li key={i}>
+                  <span className="icon">✓</span>
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-row">
-            {[
-              { value: '99.9%', label: 'Uptime SLA' },
-              { value: '<10ms', label: 'Response Time' },
-              { value: '500M+', label: 'Events Daily' },
-              { value: '10K+', label: 'Happy Customers' }
-            ].map((stat, idx) => (
-              <div 
-                key={idx} 
-                className="stat-item fade-in-up"
-                style={{ animationDelay: `${idx * 0.1}s` }}
-              >
-                <p className="stat-number gradient-text">{stat.value}</p>
-                <p className="stat-text">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="testimonials-section">
-        <div className="container">
-          <div className="section-header fade-in-up">
-            <h2 className="section-title">What Our Customers Say</h2>
-            <p className="section-description">Join thousands of satisfied clients</p>
-          </div>
-
-          <div className="testimonials-grid">
-            {[
-              {
-                name: 'Sarah Johnson',
-                role: 'CTO, TechCorp',
-                content: 'CloudSecure has transformed our security posture. The real-time threat detection saved us from multiple attacks.',
-                rating: 5
-              },
-              {
-                name: 'Michael Chen',
-                role: 'Security Lead, StartupXYZ',
-                content: 'Best investment we made this year. The automated responses and compliance features are game-changing.',
-                rating: 5
-              },
-              {
-                name: 'Emily Rodriguez',
-                role: 'DevOps Manager, Enterprise Inc',
-                content: 'Incredibly easy to set up and manage. Our team loves the intuitive dashboard and instant alerts.',
-                rating: 5
-              }
-            ].map((testimonial, idx) => (
-              <div 
-                key={idx} 
-                className="testimonial-card scale-in"
-                style={{ animationDelay: `${idx * 0.15}s` }}
-              >
-                <div className="rating">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="star-filled" />
-                  ))}
-                </div>
-                <p className="testimonial-content">"{testimonial.content}"</p>
-                <div className="testimonial-author">
-                  <p className="author-name">{testimonial.name}</p>
-                  <p className="author-role">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Timeline Section */}
+      <section className="timeline-section">
+        <h2>5-Phase Development Plan</h2>
+        
+        <div className="timeline-grid">
+          {[
+            { phase: "1", title: "Data Collection", weeks: "Weeks 1-3" },
+            { phase: "2", title: "ML Models", weeks: "Weeks 4-8" },
+            { phase: "3", title: "SIEM Core", weeks: "Weeks 9-12" },
+            { phase: "4", title: "Predictive", weeks: "Weeks 13-15" },
+            { phase: "5", title: "Testing", weeks: "Weeks 16-18" }
+          ].map((item, i) => (
+            <div key={i} className="timeline-item">
+              <div className="timeline-number">{item.phase}</div>
+              <h3>{item.title}</h3>
+              <p className="timeline-weeks">{item.weeks}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="cta-section">
-        <div className="container">
-          <div className="cta-card fade-in-up">
-            <div className="cta-content">
-              <Sparkles className="cta-icon" />
-              <h2 className="cta-title">Ready to Get Started?</h2>
-              <p className="cta-description">
-                Start your 14-day free trial. No credit card required.
-              </p>
-              <div className="cta-form">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="cta-input"
-                />
-                <button className="cta-button">Get Started</button>
-              </div>
-            </div>
+        <div className="cta-box">
+          <h2>Ready to Transform Your Security Monitoring?</h2>
+          <p>Join leading enterprises using AI-powered threat detection</p>
+          
+          <div className="email-form">
+            <input 
+              type="email" 
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button>Get Started</button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <div className="footer-logo">
-                <Shield className="footer-icon" />
-                <span className="footer-logo-text">CloudSecure</span>
-              </div>
-              <p className="footer-tagline">
-                Enterprise cloud security for the modern era
-              </p>
-            </div>
-
-            {[
-              { title: 'Product', links: ['Features', 'Pricing', 'Security', 'Roadmap'] },
-              { title: 'Company', links: ['About', 'Blog', 'Careers', 'Press'] },
-              { title: 'Resources', links: ['Documentation', 'Help Center', 'Community', 'Contact'] }
-            ].map((section, idx) => (
-              <div key={idx} className="footer-column">
-                <h4 className="footer-heading">{section.title}</h4>
-                <ul className="footer-links">
-                  {section.links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="footer-link">{link}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="footer-bottom">
-            <p className="footer-copyright">
-              © 2025 CloudSecure. All rights reserved.
-            </p>
-            <div className="footer-legal">
-              {['Privacy', 'Terms', 'Cookies'].map((item) => (
-                <a key={item} href="#" className="footer-legal-link">{item}</a>
-              ))}
-            </div>
-          </div>
-        </div>
+      <footer>
+        <p>&copy; 2025 AI-SIEM. Intelligent Security Monitoring for Modern Enterprises.</p>
       </footer>
     </div>
   );
-};
-
-export default LandingPage;
+}

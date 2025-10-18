@@ -10,9 +10,9 @@ function App() {
     <>
       {/* <Navbar />
       <Header />
-      <Landing/> */}
-      <Predict/>
-      {/* <Landing/> */}
+      
+      {/* <Predict/> */}
+      <Landing/>
       <h3 className="text-center text-2xl mt-8">Welcome to SIEM Dashboard</h3>
     </>
   )
