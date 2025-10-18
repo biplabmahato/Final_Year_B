@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useState } from 'react';
 import './Landing.css';
 import { ArrowRight, Shield, Zap, TrendingUp, BarChart3, Lock, AlertCircle, Cloud } from 'lucide-react';
