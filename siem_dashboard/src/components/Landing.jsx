@@ -203,6 +203,3 @@ export default function LandingPage() {
     </div>
   );
 }
-=======
-//landing page 
->>>>>>> 2e1e7451a2342155bf569e5955122d68b46c7498
