@@ -1,5 +1,5 @@
 import React from "react";
-
+// contact
 const ContactLink = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
