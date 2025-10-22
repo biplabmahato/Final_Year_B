@@ -4,7 +4,7 @@ import './CloudSec.css';
 const CloudSecurityPage = () => {
   return (
     <div className="cloud-security-container">
-      {/* Hero Section */}
+      
       <header className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">Cloud Security in 2025</h1>
@@ -18,9 +18,8 @@ const CloudSecurityPage = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="main-content">
-        {/* Introduction Section */}
+       
         <section className="intro-section">
           <h2 className="section-title">What is Cloud Security?</h2>
           <p className="section-text">
@@ -31,7 +30,6 @@ const CloudSecurityPage = () => {
           </p>
         </section>
 
-        {/* Key Principles Section */}
         <section className="principles-section">
           <h2 className="section-title">Core Security Principles</h2>
           <div className="principles-grid">
@@ -73,7 +71,7 @@ const CloudSecurityPage = () => {
           </div>
         </section>
 
-        {/* Emerging Threats Section */}
+    
         <section className="threats-section">
           <h2 className="section-title">Emerging Threats in 2025</h2>
           <div className="threats-list">
@@ -111,7 +109,6 @@ const CloudSecurityPage = () => {
           </div>
         </section>
 
-        {/* Security Solutions Section */}
         <section className="solutions-section">
           <h2 className="section-title">Essential Security Solutions</h2>
           <div className="solutions-grid">
@@ -141,7 +138,7 @@ const CloudSecurityPage = () => {
           </div>
         </section>
 
-        {/* Best Practices Section */}
+       
         <section className="practices-section">
           <h2 className="section-title">Security Best Practices</h2>
           <div className="practices-container">
@@ -186,7 +183,6 @@ const CloudSecurityPage = () => {
           </div>
         </section>
 
-        {/* Statistics Section */}
         <section className="stats-section">
           <h2 className="section-title">Cloud Security Landscape</h2>
           <div className="stats-grid">
@@ -205,11 +201,9 @@ const CloudSecurityPage = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
         
       </main>
 
-      {/* Footer */}
       
     </div>
   );
