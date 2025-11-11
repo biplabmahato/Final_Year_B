@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Landing from './components/Landing'
 import Predict from './components/Predict'
 import Cloudsec from './components/Cloudsec'
-
+import Login from './components/login'
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       
       {/* <Predict/> */}
       {/* <Landing/> */}
-      <Cloudsec/>
+      <Login/>
       <h3 className="text-center text-2xl mt-8">Welcome to SIEM Dashboard</h3>
     </>
   )
