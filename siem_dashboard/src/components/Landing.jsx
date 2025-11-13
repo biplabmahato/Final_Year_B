@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import './Landing.css';
 import { ArrowRight, Shield, Zap, TrendingUp, BarChart3, Lock, AlertCircle, Cloud } from 'lucide-react';
+import Navbar from "./Navbar";
+
 
 export default function LandingPage() {
   const [email, setEmail] = useState('');
@@ -63,6 +64,8 @@ export default function LandingPage() {
   ];
 
   return (
+   
+
     <div className="container">
       {/* Navigation */}
       {/* <nav>
@@ -156,6 +159,44 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+ {/* How It Works Section */}
+<section className="howitworks-section">
+  <h2>System Workflow</h2>
+
+  <div className="howitworks-timeline">
+    {[
+      {
+        title: "User Login",
+        description: "The user logs into the system to access the dashboard."
+      },
+      {
+        title: "Upload CSV File",
+        description: "The user uploads the dataset (logs or user data) in CSV format."
+      },
+      {
+        title: "Fake User Detection",
+        description: "A machine learning model identifies fake or suspicious users from the uploaded data."
+      },
+      {
+        title: "Attack Type Classification",
+        description: "Another ML model categorizes the type of attack based on behavior and patterns."
+      },
+      {
+        title: "Visualization using Graphs",
+        description: "The processed results are visualized using interactive Graphical visual analytics."
+      }
+    ].map((item, i) => (
+      <div key={i} className="howitworks-item">
+        <div className="howitworks-content">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
       {/* Timeline Section */}
       <section className="timeline-section">
@@ -201,5 +242,6 @@ export default function LandingPage() {
         <p>&copy; 2025 AI-SIEM. Intelligent Security Monitoring for Modern Enterprises.</p>
       </footer>
     </div>
+    
   );
 }

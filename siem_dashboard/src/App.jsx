@@ -6,6 +6,7 @@ import Predict from './components/Predict'
 import Cloudsec from './components/Cloudsec'
 import Login from './components/login'
 
+
 function App() {
   return (
     <>
@@ -14,7 +15,12 @@ function App() {
       
       {/* <Predict/> */}
       {/* <Landing/> */}
-      <Login/>
+      {/* <Login/> */}
+      {/* <Try/> */}
+      <Navbar/>
+      <Cloudsec/>
+
+
       <h3 className="text-center text-2xl mt-8">Welcome to SIEM Dashboard</h3>
     </>
   )

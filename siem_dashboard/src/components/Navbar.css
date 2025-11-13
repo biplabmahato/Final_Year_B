@@ -1,0 +1,59 @@
+.navbar {
+  position: static;  /* scroll ke sath upar chala jayega */
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 60px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+}
+
+
+.navbar.scrolled {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-logo img {
+  height: 50px;
+  cursor: pointer;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-links li {
+  color: white; /* looks clean on dark bg */
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar-links li:hover {
+  color: #00aaff;
+  transform: scale(1.05);
+}
+
+.login-btn {
+  background: #007bff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.login-btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+  transform: scale(1.08);
+}
